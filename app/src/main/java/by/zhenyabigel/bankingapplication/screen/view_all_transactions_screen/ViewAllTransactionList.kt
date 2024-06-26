@@ -27,7 +27,7 @@ fun ViewAllTransactionList(transactions: List<Transaction>) {
         flingBehavior = flingBehavior,
         modifier = Modifier.padding(top = 7.dp),
         contentPadding = PaddingValues(all = 5.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+        verticalArrangement = Arrangement.spacedBy(1.dp)
     ) {
         itemsIndexed(items = transactions) { index, item ->
             TransactionItem(transaction = item)

@@ -10,12 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import by.zhenyabigel.bankingapplication.model.Transaction
-import by.zhenyabigel.bankingapplication.model.cards
 import by.zhenyabigel.bankingapplication.model.transactions
-import by.zhenyabigel.bankingapplication.screen.home_screen.AccountSection
-import by.zhenyabigel.bankingapplication.screen.home_screen.HomeFooter
-import by.zhenyabigel.bankingapplication.screen.home_screen.TransactionSection
 
 @Composable
 fun ViewAllTransactionsScreen() {
@@ -27,7 +22,7 @@ fun ViewAllTransactionsScreen() {
             .padding(horizontal = 16.dp)
             .padding(top = 40.dp)
     ) {
-        ViewAllTransactionsHeader({},{})
+        ViewAllTransactionsHeader({}, {})
         Spacer(modifier = Modifier.height(16.dp))
         ViewAllTransactionList(transactions)
     }
