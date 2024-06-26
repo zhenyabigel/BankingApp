@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import by.zhenyabigel.bankingapplication.data.transactions
+import by.zhenyabigel.bankingapplication.screens.transaction_screen.TransactionScreen
 import by.zhenyabigel.bankingapplication.ui.theme.BankingApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +21,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BankingApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                TransactionScreen(transaction = transactions[1])
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    BankingApplicationTheme {
-        Greeting("Android")
     }
 }
