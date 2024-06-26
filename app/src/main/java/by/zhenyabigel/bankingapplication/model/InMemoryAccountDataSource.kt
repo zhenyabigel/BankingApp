@@ -1,6 +1,5 @@
 package by.zhenyabigel.bankingapplication.model
 
-import androidx.compose.ui.res.painterResource
 import by.zhenyabigel.bankingapplication.R
 
 val transactions = listOf(
