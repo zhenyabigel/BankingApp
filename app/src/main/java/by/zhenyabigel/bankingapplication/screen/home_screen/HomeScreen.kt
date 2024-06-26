@@ -25,11 +25,11 @@ fun HomeScreen() {
             .padding(horizontal = 16.dp)
             .padding(top = 40.dp)
     ) {
-        AccountSection(accounts[1])
+        AccountSection(card = accounts[1], onClickAccount = {})
         Spacer(modifier = Modifier.height(16.dp))
         TransactionSection(transactions)
         Spacer(modifier = Modifier.height(16.dp))
-        HomeFooter()
+        HomeFooter(onClickPlusBtn = {})
     }
 }
 

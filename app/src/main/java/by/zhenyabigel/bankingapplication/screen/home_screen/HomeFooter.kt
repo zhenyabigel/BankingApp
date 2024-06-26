@@ -11,11 +11,12 @@ import androidx.compose.ui.res.painterResource
 import by.zhenyabigel.bankingapplication.R
 
 @Composable
-fun HomeFooter() {
+fun HomeFooter(onClickPlusBtn: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { }, contentAlignment = Alignment.BottomEnd
+            .clickable { onClickPlusBtn() },
+        contentAlignment = Alignment.BottomEnd
     ) {
         Image(
             painter = painterResource(id = R.drawable.group_277133801), contentDescription = ""

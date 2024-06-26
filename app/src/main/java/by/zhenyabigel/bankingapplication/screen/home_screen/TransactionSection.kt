@@ -65,7 +65,7 @@ fun TransactionSection(transactions: List<Transaction>) {
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 itemsIndexed(items = transactions.take(5)) { index, item ->
-                    TransactionItem(transaction = item)
+                    TransactionItem(transaction = item, onClickTransaction = {})
                     if (index < 4) Divider(
                         color = LightGray,
                         thickness = 0.7.dp,
