@@ -64,9 +64,9 @@ fun TransactionSection(transactions: List<Transaction>) {
                 contentPadding = PaddingValues(all = 5.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                itemsIndexed(items = transactions) { index, item ->
-                    TransactionItem(transaction = item)
-                    if (index < transactions.lastIndex) Divider(
+                itemsIndexed(items = transactions.take(5)) { index, item ->
+                    TransactionItem(transaction = item, onClickTransaction = {})
+                    if (index < 4) Divider(
                         color = LightGray,
                         thickness = 0.7.dp,
                         modifier = Modifier.padding(horizontal = 16.dp)
