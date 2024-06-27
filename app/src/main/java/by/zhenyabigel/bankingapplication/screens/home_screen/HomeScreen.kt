@@ -1,4 +1,4 @@
-package by.zhenyabigel.bankingapplication.screen.view_all_transactions_screen
+package by.zhenyabigel.bankingapplication.screens.home_screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -10,11 +10,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import by.zhenyabigel.bankingapplication.model.cards
 import by.zhenyabigel.bankingapplication.model.transactions
 
 @Composable
-fun ViewAllTransactionsScreen() {
+fun HomeScreen() {
+    val accounts = cards
     val transactions = transactions
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -22,11 +25,15 @@ fun ViewAllTransactionsScreen() {
             .padding(horizontal = 16.dp)
             .padding(top = 40.dp)
     ) {
-        ViewAllTransactionsHeader({}, {})
+        AccountSection(card = accounts[1], onClickAccount = {})
         Spacer(modifier = Modifier.height(16.dp))
-        ViewAllTransactionList(transactions)
+        TransactionSection(transactions)
+        Spacer(modifier = Modifier.height(16.dp))
+        HomeFooter(onClickPlusBtn = {})
     }
 }
+
+
 
 
 

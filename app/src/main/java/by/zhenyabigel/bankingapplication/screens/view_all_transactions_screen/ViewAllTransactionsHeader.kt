@@ -1,4 +1,4 @@
-package by.zhenyabigel.bankingapplication.screen.view_all_transactions_screen
+package by.zhenyabigel.bankingapplication.screens.view_all_transactions_screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

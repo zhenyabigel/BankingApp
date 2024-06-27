@@ -1,4 +1,4 @@
-package by.zhenyabigel.bankingapplication.screen.view_all_transactions_screen
+package by.zhenyabigel.bankingapplication.screens.view_all_transactions_screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import by.zhenyabigel.bankingapplication.model.Transaction
-import by.zhenyabigel.bankingapplication.screen.home_screen.TransactionItem
+import by.zhenyabigel.bankingapplication.screens.home_screen.TransactionItem
 import by.zhenyabigel.bankingapplication.ui.theme.LightGray
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -30,7 +30,7 @@ fun ViewAllTransactionList(transactions: List<Transaction>) {
         verticalArrangement = Arrangement.spacedBy(1.dp)
     ) {
         itemsIndexed(items = transactions) { index, item ->
-            TransactionItem(transaction = item)
+            TransactionItem(transaction = item, {})
             if (index < transactions.lastIndex) Divider(
                 color = LightGray,
                 thickness = 0.7.dp,
