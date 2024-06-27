@@ -30,7 +30,7 @@ fun ViewAllTransactionList(transactions: List<Transaction>) {
         verticalArrangement = Arrangement.spacedBy(1.dp)
     ) {
         itemsIndexed(items = transactions) { index, item ->
-            TransactionItem(transaction = item)
+            TransactionItem(transaction = item, {})
             if (index < transactions.lastIndex) Divider(
                 color = LightGray,
                 thickness = 0.7.dp,
