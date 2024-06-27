@@ -1,5 +1,6 @@
-package by.zhenyabigel.bankingapplication.screen.home_screen
+package by.zhenyabigel.bankingapplication.screens.home_screen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -16,10 +17,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import by.zhenyabigel.bankingapplication.model.Actions
 import by.zhenyabigel.bankingapplication.model.Card
+import by.zhenyabigel.bankingapplication.ui.theme.DarkBlue
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
-fun HomeBottomSheet(selectedAccount: Card, accounts: List<Card>) {
+fun HomeBottomSheet(selectedAccount: Card, accounts: List<Card>, onClickChangeAccount: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -37,7 +39,14 @@ fun HomeBottomSheet(selectedAccount: Card, accounts: List<Card>) {
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             items(items = accounts) { item ->
-                CardItem(card = item, onClickAccount = {},type = Actions.BottomSheet)
+                val color = if (selectedAccount == item) DarkBlue
+                else Color.Black
+                CardItem(
+                    card = item,
+                    onClickAccount = { onClickChangeAccount() },
+                    type = Actions.BottomSheet,
+                    modifier = Modifier.background(color)
+                )
             }
         }
     }

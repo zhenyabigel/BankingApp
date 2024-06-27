@@ -1,4 +1,4 @@
-package by.zhenyabigel.bankingapplication.screen.home_screen
+package by.zhenyabigel.bankingapplication.screens.home_screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -51,7 +51,7 @@ fun HomeScreen() {
                 sheetState = sheetState,
                 containerColor = Color.Black,
             ) {
-                HomeBottomSheet(selectedAccount, accounts)
+                HomeBottomSheet(selectedAccount, accounts, {})
             }
         }
     })

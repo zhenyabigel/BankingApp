@@ -1,4 +1,4 @@
-package by.zhenyabigel.bankingapplication.screen.home_screen
+package by.zhenyabigel.bankingapplication.screens.home_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -31,16 +30,14 @@ import by.zhenyabigel.bankingapplication.ui.theme.Gray
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
-fun CardItem(card: Card, onClickAccount: () -> Unit,type: Actions,modifier:Modifier = Modifier) {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(15.dp))
-            .background(DarkGray)
-            .clickable { onClickAccount() }
-    ) {
+fun CardItem(card: Card, onClickAccount: () -> Unit, type: Actions, modifier: Modifier = Modifier) {
+    Box(modifier = Modifier
+        .fillMaxWidth()
+        .clip(RoundedCornerShape(15.dp))
+        .background(DarkGray)
+        .clickable { onClickAccount() }) {
         Row(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(16.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -84,7 +81,7 @@ fun CardItem(card: Card, onClickAccount: () -> Unit,type: Actions,modifier:Modif
                     )
                 }
             }
-            if(type.equals(Actions.AccountSection)){
+            if (type.equals(Actions.AccountSection)) {
                 Image(
                     painter = painterResource(id = R.drawable.ic_baseline_arrow),
                     contentDescription = "image arrow forward"

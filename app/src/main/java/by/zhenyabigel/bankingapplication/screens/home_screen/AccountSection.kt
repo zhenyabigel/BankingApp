@@ -1,4 +1,4 @@
-package by.zhenyabigel.bankingapplication.screen.home_screen
+package by.zhenyabigel.bankingapplication.screens.home_screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -30,7 +30,7 @@ fun AccountSection(card: Card, onClickAccount: () -> Unit) {
                 fontSize = 28.sp
             )
             Spacer(modifier = Modifier.height(26.dp))
-            CardItem(card, onClickAccount,Actions.AccountSection)
+            CardItem(card, onClickAccount, Actions.AccountSection)
         }
     }
 }

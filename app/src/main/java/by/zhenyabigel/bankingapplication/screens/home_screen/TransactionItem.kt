@@ -1,4 +1,4 @@
-package by.zhenyabigel.bankingapplication.screen.home_screen
+package by.zhenyabigel.bankingapplication.screens.home_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -28,13 +28,11 @@ import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
 fun TransactionItem(transaction: Transaction, onClickTransaction: () -> Unit) {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(8.dp))
-            .background(DarkGray)
-            .clickable {onClickTransaction()}
-    ) {
+    Box(modifier = Modifier
+        .fillMaxWidth()
+        .clip(RoundedCornerShape(8.dp))
+        .background(DarkGray)
+        .clickable { onClickTransaction() }) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()

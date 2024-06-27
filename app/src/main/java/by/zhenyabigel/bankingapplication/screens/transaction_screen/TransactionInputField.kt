@@ -163,9 +163,3 @@ fun TransactionInputField(transaction: Transaction) {
         }
     }
 }
-
-@Preview
-@Composable
-fun Input() {
-    TransactionInputField(transactions[1])
-}
