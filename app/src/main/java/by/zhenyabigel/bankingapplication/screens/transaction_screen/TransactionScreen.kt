@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import by.zhenyabigel.bankingapplication.data.Transaction
-import by.zhenyabigel.bankingapplication.data.transactions
+
+import by.zhenyabigel.bankingapplication.model.Transaction
 
 @Composable
 fun TransactionScreen(navController: NavHostController) {
