@@ -22,14 +22,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import by.zhenyabigel.bankingapplication.data.Transaction
-import by.zhenyabigel.bankingapplication.data.transactions
+import by.zhenyabigel.bankingapplication.model.Transaction
+import by.zhenyabigel.bankingapplication.model.transactions
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
 fun TransactionInputField(transaction: Transaction) {
     var transactionCompany by remember { mutableStateOf(transaction.company) }
-    var transactionNumber by remember { mutableStateOf(transaction.number) }
+    var transactionNumber by remember { mutableStateOf(transaction.transactionNumber) }
     var transactionStatus by remember { mutableStateOf(transaction.status) }
     var transactionAmount by remember { mutableStateOf(transaction.amount) }
     var transactionDate by remember { mutableStateOf(transaction.date) }
@@ -162,10 +162,4 @@ fun TransactionInputField(transaction: Transaction) {
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun Input() {
-    TransactionInputField(transactions[1])
 }
