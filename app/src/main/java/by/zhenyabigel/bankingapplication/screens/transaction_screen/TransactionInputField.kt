@@ -19,15 +19,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import by.zhenyabigel.bankingapplication.data.Transaction
-import by.zhenyabigel.bankingapplication.data.transactions
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
-fun TransactionInputField(transaction: Transaction) {
+fun TransactionInputField(transaction: Transaction, onClickOkayBtn: () -> Unit) {
     var transactionCompany by remember { mutableStateOf(transaction.company) }
     var transactionNumber by remember { mutableStateOf(transaction.number) }
     var transactionStatus by remember { mutableStateOf(transaction.status) }
@@ -145,7 +143,7 @@ fun TransactionInputField(transaction: Transaction) {
             }
 
             Button(
-                onClick = {},
+                onClick = { onClickOkayBtn() },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1E88E5)),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -162,10 +160,4 @@ fun TransactionInputField(transaction: Transaction) {
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun Input() {
-    TransactionInputField(transactions[1])
 }
