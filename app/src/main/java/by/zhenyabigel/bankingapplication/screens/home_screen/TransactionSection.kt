@@ -24,14 +24,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import by.zhenyabigel.bankingapplication.model.Transaction
+import by.zhenyabigel.bankingapplication.data.Transaction
 import by.zhenyabigel.bankingapplication.ui.theme.Blue
 import by.zhenyabigel.bankingapplication.ui.theme.DarkGray
 import by.zhenyabigel.bankingapplication.ui.theme.LightGray
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
-fun TransactionSection(transactions: List<Transaction>, onClickViewAll:()->Unit) {
+fun TransactionSection(
+    transactions: List<Transaction>, onClickViewAll: () -> Unit, onClickTransaction: () -> Unit
+) {
     Column {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -45,15 +47,12 @@ fun TransactionSection(transactions: List<Transaction>, onClickViewAll:()->Unit)
                 color = Color.White,
                 fontSize = 28.sp
             )
-            Text(
-                text = "VIEW ALL",
+            Text(text = "VIEW ALL",
                 fontFamily = robotoFontFamily,
                 fontWeight = FontWeight.Bold,
                 color = Blue,
                 fontSize = 13.sp,
-                modifier = Modifier
-                    .clickable {onClickViewAll()}
-            )
+                modifier = Modifier.clickable { onClickViewAll() })
         }
         Spacer(modifier = Modifier.height(26.dp))
         Box(
@@ -68,7 +67,7 @@ fun TransactionSection(transactions: List<Transaction>, onClickViewAll:()->Unit)
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 itemsIndexed(items = transactions.take(5)) { index, item ->
-                    TransactionItem(transaction = item, onClickTransaction = {})
+                    TransactionItem(transaction = item, onClickTransaction = onClickTransaction)
                     if (index < 4) Divider(
                         color = LightGray,
                         thickness = 0.7.dp,

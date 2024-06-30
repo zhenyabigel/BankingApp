@@ -18,28 +18,28 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import by.zhenyabigel.bankingapplication.model.transactions
-import by.zhenyabigel.bankingapplication.navigation.Screen
+import androidx.navigation.NavController
+import by.zhenyabigel.bankingapplication.data.transactions
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ViewAllTransactionsScreen(navController: NavHostController) {
+fun ViewAllTransactionsScreen(navController: NavController) {
     val transactions = transactions
     val sheetState = rememberModalBottomSheetState()
     var showBottomSheet by remember { mutableStateOf(false) }
     Scaffold(modifier = Modifier.fillMaxSize(), content = { padding ->
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black)
-            .padding(horizontal = 16.dp)
-            .padding(top = 40.dp)
-    ) {
-        ViewAllTransactionsHeader({navController.navigate("home_screen")}, {showBottomSheet = true})
-        Spacer(modifier = Modifier.height(16.dp))
-        ViewAllTransactionList(transactions)
-    }
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.Black)
+                .padding(horizontal = 16.dp)
+                .padding(top = 40.dp)
+        ) {
+            ViewAllTransactionsHeader({ navController.navigate("home_screen") },
+                { showBottomSheet = true })
+            Spacer(modifier = Modifier.height(16.dp))
+            ViewAllTransactionList(transactions)
+        }
         if (showBottomSheet) {
             ModalBottomSheet(
                 onDismissRequest = {
@@ -51,8 +51,7 @@ fun ViewAllTransactionsScreen(navController: NavHostController) {
                 ViewAllTransactionsBottomSheet()
             }
         }
-    }
-    )
+    })
 }
 
 

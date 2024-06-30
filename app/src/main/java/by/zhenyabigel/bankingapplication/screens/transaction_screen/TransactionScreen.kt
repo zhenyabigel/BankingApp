@@ -10,12 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-
-import by.zhenyabigel.bankingapplication.model.Transaction
+import androidx.navigation.NavController
+import by.zhenyabigel.bankingapplication.data.transactions
 
 @Composable
-fun TransactionScreen(navController: NavHostController) {
+fun TransactionScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
