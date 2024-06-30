@@ -11,13 +11,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import by.zhenyabigel.bankingapplication.model.cards
+import by.zhenyabigel.bankingapplication.model.transactions
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavHostController) {
     val accounts = cards
     var selectedAccount = cards[1]
     val transactions = transactions
+
     val sheetState = rememberModalBottomSheetState()
     var showBottomSheet by remember { mutableStateOf(false) }
     Scaffold(modifier = Modifier.fillMaxSize(), content = { padding ->
@@ -30,9 +38,9 @@ fun HomeScreen() {
         ) {
             AccountSection(card = accounts[1], onClickAccount = { showBottomSheet = true })
             Spacer(modifier = Modifier.height(16.dp))
-            TransactionSection(transactions)
+            TransactionSection(transactions,{ navController.navigate("view_all_transaction_screen") })
             Spacer(modifier = Modifier.height(16.dp))
-            HomeFooter(onClickPlusBtn = {})
+            HomeFooter(onClickPlusBtn = {navController.navigate("transaction_screen")})
         }
         if (showBottomSheet) {
             ModalBottomSheet(

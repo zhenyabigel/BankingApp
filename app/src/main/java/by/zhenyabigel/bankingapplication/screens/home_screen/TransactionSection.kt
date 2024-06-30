@@ -1,6 +1,7 @@
 package by.zhenyabigel.bankingapplication.screens.home_screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -30,7 +31,7 @@ import by.zhenyabigel.bankingapplication.ui.theme.LightGray
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
-fun TransactionSection(transactions: List<Transaction>) {
+fun TransactionSection(transactions: List<Transaction>, onClickViewAll:()->Unit) {
     Column {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -49,7 +50,9 @@ fun TransactionSection(transactions: List<Transaction>) {
                 fontFamily = robotoFontFamily,
                 fontWeight = FontWeight.Bold,
                 color = Blue,
-                fontSize = 13.sp
+                fontSize = 13.sp,
+                modifier = Modifier
+                    .clickable {onClickViewAll()}
             )
         }
         Spacer(modifier = Modifier.height(26.dp))

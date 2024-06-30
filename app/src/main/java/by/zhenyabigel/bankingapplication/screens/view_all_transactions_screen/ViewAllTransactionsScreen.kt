@@ -18,11 +18,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import by.zhenyabigel.bankingapplication.model.transactions
+import by.zhenyabigel.bankingapplication.navigation.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ViewAllTransactionsScreen() {
+fun ViewAllTransactionsScreen(navController: NavHostController) {
     val transactions = transactions
     val sheetState = rememberModalBottomSheetState()
     var showBottomSheet by remember { mutableStateOf(false) }
@@ -34,7 +36,7 @@ fun ViewAllTransactionsScreen() {
             .padding(horizontal = 16.dp)
             .padding(top = 40.dp)
     ) {
-        ViewAllTransactionsHeader({}, {showBottomSheet = true})
+        ViewAllTransactionsHeader({navController.navigate("home_screen")}, {showBottomSheet = true})
         Spacer(modifier = Modifier.height(16.dp))
         ViewAllTransactionList(transactions)
     }

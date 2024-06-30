@@ -10,10 +10,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+
 import by.zhenyabigel.bankingapplication.model.Transaction
 
 @Composable
-fun TransactionScreen(transaction: Transaction) {
+fun TransactionScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -23,7 +25,12 @@ fun TransactionScreen(transaction: Transaction) {
     ) {
         TransactionHeader()
         Spacer(modifier = Modifier.height(32.dp))
-        TransactionInputField(transaction)
+        TransactionInputField(
+            transactions[1],
+            onClickOkayBtn = {
+                {}
+                navController.navigate("home_screen")
+            })
     }
 }
 
