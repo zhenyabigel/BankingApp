@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import by.zhenyabigel.bankingapplication.model.cards
-import by.zhenyabigel.bankingapplication.model.transactions
+import by.zhenyabigel.bankingapplication.data.cards
+import by.zhenyabigel.bankingapplication.data.transactions
 
 @Composable
 fun HomeScreen(navController: NavHostController) {
@@ -28,9 +28,11 @@ fun HomeScreen(navController: NavHostController) {
     ) {
         AccountSection(card = accounts[1], onClickAccount = {})
         Spacer(modifier = Modifier.height(16.dp))
-        TransactionSection(transactions,{ navController.navigate("view_all_transaction_screen") })
+        TransactionSection(transactions = transactions,
+            onClickViewAll = { navController.navigate("view_all_transaction_screen") },
+            onClickTransaction = {})
         Spacer(modifier = Modifier.height(16.dp))
-        HomeFooter(onClickPlusBtn = {navController.navigate("transaction_screen")})
+        HomeFooter(onClickPlusBtn = { navController.navigate("transaction_screen") })
     }
 }
 
