@@ -23,21 +23,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import by.zhenyabigel.bankingapplication.R
-import by.zhenyabigel.bankingapplication.data.Actions
-import by.zhenyabigel.bankingapplication.data.Card
+import by.zhenyabigel.bankingapplication.data.model.Actions
+import by.zhenyabigel.bankingapplication.data.model.Account
 import by.zhenyabigel.bankingapplication.ui.theme.DarkGray
 import by.zhenyabigel.bankingapplication.ui.theme.Gray
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
-fun AccountSection(card: Card, onClickAccount: () -> Unit) {
+fun AccountSection(account: Account, onClickAccount: () -> Unit) {
     Box(
         modifier = Modifier.fillMaxWidth()
     ) {
         Box(modifier = Modifier
             .fillMaxWidth()
             .clickable { onClickAccount() }) {
-            CardItem(card, onClickAccount, Actions.AccountSection)
+            CardItem(account, onClickAccount, Actions.AccountSection)
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -57,7 +57,7 @@ fun AccountSection(card: Card, onClickAccount: () -> Unit) {
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Image(
-                            painter = painterResource(card.cover),
+                            painter = painterResource(account.cover),
                             contentDescription = "card image",
                             modifier = Modifier
                                 .width(40.dp)
@@ -74,14 +74,14 @@ fun AccountSection(card: Card, onClickAccount: () -> Unit) {
                                 fontSize = 15.sp
                             )
                             Text(
-                                text = card.number,
+                                text = account.number,
                                 fontFamily = robotoFontFamily,
                                 fontWeight = FontWeight.Bold,
                                 color = Gray,
                                 fontSize = 13.sp
                             )
                             Text(
-                                text = "•••• " + card.walletID,
+                                text = "•••• " + account.walletID,
                                 fontFamily = robotoFontFamily,
                                 fontWeight = FontWeight.Bold,
                                 color = Gray,

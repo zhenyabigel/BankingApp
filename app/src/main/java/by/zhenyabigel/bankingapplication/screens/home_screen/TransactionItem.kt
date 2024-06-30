@@ -21,7 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import by.zhenyabigel.bankingapplication.R
-import by.zhenyabigel.bankingapplication.data.Transaction
+import by.zhenyabigel.bankingapplication.data.model.Transaction
 import by.zhenyabigel.bankingapplication.ui.theme.DarkGray
 import by.zhenyabigel.bankingapplication.ui.theme.Gray
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
