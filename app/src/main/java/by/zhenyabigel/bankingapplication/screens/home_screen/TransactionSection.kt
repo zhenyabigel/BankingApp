@@ -24,7 +24,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import by.zhenyabigel.bankingapplication.data.Transaction
+import androidx.navigation.NavController
+import by.zhenyabigel.bankingapplication.model.Transaction
+import by.zhenyabigel.bankingapplication.navigation.Screen
 import by.zhenyabigel.bankingapplication.ui.theme.Blue
 import by.zhenyabigel.bankingapplication.ui.theme.DarkGray
 import by.zhenyabigel.bankingapplication.ui.theme.LightGray
@@ -32,7 +34,7 @@ import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
 fun TransactionSection(
-    transactions: List<Transaction>, onClickViewAll: () -> Unit, onClickTransaction: () -> Unit
+    transactions: List<Transaction>, navController: NavController
 ) {
     Column {
         Row(
@@ -52,7 +54,7 @@ fun TransactionSection(
                 fontWeight = FontWeight.Bold,
                 color = Blue,
                 fontSize = 13.sp,
-                modifier = Modifier.clickable { onClickViewAll() })
+                modifier = Modifier.clickable { navController.navigate(Screen.ViewAllTransactionsScreen.route) })
         }
         Spacer(modifier = Modifier.height(26.dp))
         Box(
@@ -67,7 +69,8 @@ fun TransactionSection(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 itemsIndexed(items = transactions.take(5)) { index, item ->
-                    TransactionItem(transaction = item, onClickTransaction = onClickTransaction)
+                    TransactionItem(transaction = item,
+                        onClickTransaction = { navController.navigate((Screen.TransactionScreen.route)) })
                     if (index < 4) Divider(
                         color = LightGray,
                         thickness = 0.7.dp,

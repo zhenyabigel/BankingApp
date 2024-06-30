@@ -18,13 +18,11 @@ fun SetupNavGraph(
         composable(route = Screen.HomeScreen.route) {
             HomeScreen(navController)
         }
-        composable(route = Screen.TransactionScreen.route + "/{transactionId}") {
+        composable(route = Screen.TransactionScreen.route) {
             TransactionScreen(navController)
         }
         composable(route = Screen.ViewAllTransactionsScreen.route) {
             ViewAllTransactionsScreen(navController)
         }
-
-
     }
 }
