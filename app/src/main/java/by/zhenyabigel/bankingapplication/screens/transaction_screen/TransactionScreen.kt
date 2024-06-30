@@ -24,9 +24,12 @@ fun TransactionScreen(navController: NavController) {
     ) {
         TransactionHeader()
         Spacer(modifier = Modifier.height(32.dp))
-        TransactionInputField(transactions[1], onClickOkayBtn = {
-            navController.navigate("home_screen")
-        })
+        TransactionInputField(
+            transactions[1],
+            onClickOkayBtn = {
+                {}
+                navController.navigate("home_screen")
+            })
     }
 }
 

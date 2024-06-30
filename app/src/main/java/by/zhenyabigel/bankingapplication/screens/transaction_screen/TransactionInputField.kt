@@ -21,13 +21,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import by.zhenyabigel.bankingapplication.data.Transaction
+
+import by.zhenyabigel.bankingapplication.model.Transaction
+import by.zhenyabigel.bankingapplication.model.transactions
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
 fun TransactionInputField(transaction: Transaction, onClickOkayBtn: () -> Unit) {
     var transactionCompany by remember { mutableStateOf(transaction.company) }
-    var transactionNumber by remember { mutableStateOf(transaction.number) }
+    var transactionNumber by remember { mutableStateOf(transaction.transactionNumber) }
     var transactionStatus by remember { mutableStateOf(transaction.status) }
     var transactionAmount by remember { mutableStateOf(transaction.amount) }
     var transactionDate by remember { mutableStateOf(transaction.date) }
