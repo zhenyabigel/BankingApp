@@ -1,7 +1,6 @@
-package by.zhenyabigel.bankingapplication.model
+package by.zhenyabigel.bankingapplication.data
 
 import androidx.annotation.DrawableRes
-import java.time.LocalDate
 import java.util.UUID
 
 data class Card(

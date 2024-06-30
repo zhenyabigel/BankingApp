@@ -20,8 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import by.zhenyabigel.bankingapplication.model.cards
-import by.zhenyabigel.bankingapplication.model.transactions
+import by.zhenyabigel.bankingapplication.data.cards
+import by.zhenyabigel.bankingapplication.data.transactions
 
 
 @OptIn(ExperimentalMaterial3Api::class)

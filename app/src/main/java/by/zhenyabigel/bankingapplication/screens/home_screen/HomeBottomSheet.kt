@@ -15,8 +15,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import by.zhenyabigel.bankingapplication.model.Actions
-import by.zhenyabigel.bankingapplication.model.Card
+import by.zhenyabigel.bankingapplication.data.Actions
+import by.zhenyabigel.bankingapplication.data.Card
 import by.zhenyabigel.bankingapplication.ui.theme.DarkBlue
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 

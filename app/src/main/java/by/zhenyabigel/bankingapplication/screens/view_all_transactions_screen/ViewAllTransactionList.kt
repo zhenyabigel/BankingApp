@@ -12,7 +12,7 @@ import androidx.compose.material3.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import by.zhenyabigel.bankingapplication.model.Transaction
+import by.zhenyabigel.bankingapplication.data.Transaction
 import by.zhenyabigel.bankingapplication.screens.home_screen.TransactionItem
 import by.zhenyabigel.bankingapplication.ui.theme.LightGray
 

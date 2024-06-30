@@ -1,4 +1,4 @@
-package by.zhenyabigel.bankingapplication.model
+package by.zhenyabigel.bankingapplication.data
 
 import by.zhenyabigel.bankingapplication.R
 

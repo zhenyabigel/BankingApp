@@ -25,7 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import by.zhenyabigel.bankingapplication.model.Transaction
+import by.zhenyabigel.bankingapplication.data.Transaction
 import by.zhenyabigel.bankingapplication.navigation.Screen
 import by.zhenyabigel.bankingapplication.ui.theme.Blue
 import by.zhenyabigel.bankingapplication.ui.theme.DarkGray

@@ -18,7 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import by.zhenyabigel.bankingapplication.model.transactions
+import by.zhenyabigel.bankingapplication.data.transactions
 import androidx.navigation.NavController
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
