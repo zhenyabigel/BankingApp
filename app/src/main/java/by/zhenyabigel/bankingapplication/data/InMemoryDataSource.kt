@@ -4,8 +4,6 @@ import by.zhenyabigel.bankingapplication.R
 import by.zhenyabigel.bankingapplication.data.model.Account
 import by.zhenyabigel.bankingapplication.data.model.Transaction
 
-
-
 val accounts = listOf(
     Account(
         number = "123456781234",
