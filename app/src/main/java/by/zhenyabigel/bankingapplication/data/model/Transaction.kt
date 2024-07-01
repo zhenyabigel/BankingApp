@@ -1,4 +1,4 @@
-package by.zhenyabigel.bankingapplication.data
+package by.zhenyabigel.bankingapplication.data.model
 data class Transaction (
     val company: String,
     val transactionNumber: String,
