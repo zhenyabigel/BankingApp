@@ -14,9 +14,8 @@ import java.util.UUID
 
 @OptIn(DelicateCoroutinesApi::class)
 object InMemoryAccountDataSource : AccountDataSource {
-    private val accounts = DefaultAccounts.associateBy { it.id }.toMutableMap() // (1)
-    private val _accountFlow = MutableSharedFlow<Map<UUID, Account>>(1) // (2)
-
+    private val accounts = DefaultAccounts.associateBy { it.id }.toMutableMap()
+    private val _accountFlow = MutableSharedFlow<Map<UUID, Account>>(1)
     init {
         GlobalScope.launch(Dispatchers.Default) {
             while (isActive) {

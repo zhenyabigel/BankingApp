@@ -15,8 +15,8 @@ import java.util.UUID
 @OptIn(DelicateCoroutinesApi::class)
 object InMemoryTransactionsDataSource : TransactionDataSource {
 
-    private val transactions = DefaultTransactions.associateBy { it.id }.toMutableMap() // (1)
-    private val _transactionFlow = MutableSharedFlow<Map<UUID, Transaction>>(1) // (2)
+    private val transactions = DefaultTransactions.associateBy { it.id }.toMutableMap()
+    private val _transactionFlow = MutableSharedFlow<Map<UUID, Transaction>>(1)
 
     init {
         GlobalScope.launch {
