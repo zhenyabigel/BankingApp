@@ -1,5 +1,6 @@
 package by.zhenyabigel.bankingapplication.data.model
 
+import by.zhenyabigel.bankingapplication.data.entities.TransactionEntity
 import java.util.UUID
 
 data class Transaction (
@@ -9,4 +10,13 @@ data class Transaction (
     val date: String,
     val status: String,
     val amount: String
+)
+
+internal fun Transaction.toData() = TransactionEntity(
+    id = id,
+    company = company,
+    transactionNumber = transactionNumber,
+    date = date,
+    status = status,
+    amount = amount.toInt()
 )

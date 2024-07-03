@@ -1,6 +1,7 @@
 package by.zhenyabigel.bankingapplication.data.model
 
 import androidx.annotation.DrawableRes
+import by.zhenyabigel.bankingapplication.data.entities.AccountEntity
 import java.util.UUID
 
 data class Account(
@@ -10,4 +11,11 @@ data class Account(
     val ownerName: String,
     @DrawableRes
     val cover: Int,
+)
+internal fun Account.toEntity() = AccountEntity(
+    id = id,
+    number = number,
+    walletID = walletID,
+    ownerName = ownerName,
+    coverUrl = cover
 )

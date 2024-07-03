@@ -2,7 +2,8 @@ package by.zhenyabigel.bankingapplication.data.repository
 
 import by.zhenyabigel.bankingapplication.data.datasource.AccountDataSource
 import by.zhenyabigel.bankingapplication.data.model.Account
-import by.zhenyabigel.bankingapplication.domain.AccountsRepository
+import by.zhenyabigel.bankingapplication.data.model.toEntity
+import by.zhenyabigel.bankingapplication.domain.repository_interfaces.AccountsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.util.UUID
@@ -19,9 +20,9 @@ class AccountRepositoryImpl(
         emit(account)
     }
     override suspend fun upsert(account: Account) {
-        upsert(account)
+        accountDataSource.upsert(account.toEntity())
     }
     override suspend fun delete(id: UUID) {
-        delete(id)
+        accountDataSource.delete(id)
     }
 }

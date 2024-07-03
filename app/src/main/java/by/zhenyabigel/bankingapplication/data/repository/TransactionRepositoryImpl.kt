@@ -2,7 +2,8 @@ package by.zhenyabigel.bankingapplication.data.repository
 
 import by.zhenyabigel.bankingapplication.data.datasource.TransactionDataSource
 import by.zhenyabigel.bankingapplication.data.model.Transaction
-import by.zhenyabigel.bankingapplication.domain.TransactionRepository
+import by.zhenyabigel.bankingapplication.data.model.toData
+import by.zhenyabigel.bankingapplication.domain.repository_interfaces.TransactionRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.util.UUID
@@ -19,9 +20,9 @@ class TransactionRepositoryImpl(
         emit(transaction)
     }
     override suspend fun upsert(transaction: Transaction) {
-        upsert(transaction)
+        transactionDataSource.upsert(transaction.toData())
     }
     override suspend fun delete(id: UUID) {
-        delete(id)
+        transactionDataSource.delete(id)
     }
 }
