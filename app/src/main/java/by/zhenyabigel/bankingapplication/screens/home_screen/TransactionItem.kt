@@ -21,13 +21,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import by.zhenyabigel.bankingapplication.R
-import by.zhenyabigel.bankingapplication.data.model.Transaction
+import by.zhenyabigel.bankingapplication.domain.model.TransactionDomainModel
 import by.zhenyabigel.bankingapplication.ui.theme.DarkGray
 import by.zhenyabigel.bankingapplication.ui.theme.Gray
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
-fun TransactionItem(transaction: Transaction, onClickTransaction: () -> Unit) {
+fun TransactionItem(transactionDomainModel: TransactionDomainModel, onClickTransaction: () -> Unit) {
     Box(modifier = Modifier
         .fillMaxWidth()
         .clip(RoundedCornerShape(8.dp))
@@ -44,30 +44,30 @@ fun TransactionItem(transaction: Transaction, onClickTransaction: () -> Unit) {
                 modifier = Modifier, verticalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = transaction.company,
+                    text = transactionDomainModel.company,
                     fontFamily = robotoFontFamily,
                     fontWeight = FontWeight.Bold,
                     color = Color.White,
                     fontSize = 17.sp
                 )
                 Text(
-                    text = transaction.date,
+                    text = transactionDomainModel.date,
                     fontFamily = robotoFontFamily,
                     fontWeight = FontWeight.Bold,
                     color = Gray,
                     fontSize = 13.sp
                 )
                 Text(
-                    text = transaction.status,
+                    text = transactionDomainModel.status,
                     fontFamily = robotoFontFamily,
                     fontWeight = FontWeight.Bold,
-                    color = getColorForStatus(transaction.status),
+                    color = getColorForStatus(transactionDomainModel.status),
                     fontSize = 13.sp
                 )
             }
             Row {
                 Text(
-                    text = transaction.amount,
+                    text = transactionDomainModel.amount,
                     fontFamily = robotoFontFamily,
                     fontWeight = FontWeight.Medium,
                     color = Color.White,

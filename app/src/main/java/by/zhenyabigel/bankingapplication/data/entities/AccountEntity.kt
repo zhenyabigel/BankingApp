@@ -3,7 +3,7 @@ package by.zhenyabigel.bankingapplication.data.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import by.zhenyabigel.bankingapplication.data.model.Account
+import by.zhenyabigel.bankingapplication.domain.model.AccountDomainModel
 import java.util.UUID
 @Entity(tableName = AccountEntity.TABLE_NAME)
 data class AccountEntity(
@@ -16,8 +16,8 @@ data class AccountEntity(
     internal companion object {
         const val TABLE_NAME = "account_table" // <- удобно потом ссылаться будет
     }
-    fun toAccount(): Account {
-        return Account(
+    fun toAccount(): AccountDomainModel {
+        return AccountDomainModel(
             id= id,
             number = number,
             walletID = walletID,

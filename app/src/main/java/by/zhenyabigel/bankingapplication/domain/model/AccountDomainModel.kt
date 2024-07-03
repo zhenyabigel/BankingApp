@@ -1,10 +1,10 @@
-package by.zhenyabigel.bankingapplication.data.model
+package by.zhenyabigel.bankingapplication.domain.model
 
 import androidx.annotation.DrawableRes
 import by.zhenyabigel.bankingapplication.data.entities.AccountEntity
 import java.util.UUID
 
-data class Account(
+data class AccountDomainModel(
     val id: UUID = UUID.randomUUID(),
     val number: String,
     val walletID: String,
@@ -12,7 +12,7 @@ data class Account(
     @DrawableRes
     val cover: Int,
 )
-internal fun Account.toEntity() = AccountEntity(
+internal fun AccountDomainModel.toEntity() = AccountEntity(
     id = id,
     number = number,
     walletID = walletID,

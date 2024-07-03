@@ -3,7 +3,7 @@ package by.zhenyabigel.bankingapplication.data.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import by.zhenyabigel.bankingapplication.data.model.Transaction
+import by.zhenyabigel.bankingapplication.domain.model.TransactionDomainModel
 import java.util.UUID
 
 @Entity(tableName = TransactionEntity.TABLE_NAME)
@@ -18,8 +18,8 @@ data class TransactionEntity(
     internal companion object {
         const val TABLE_NAME = "transaction_table" // <- удобно потом ссылаться будет
     }
-    fun toTransaction(): Transaction {
-        return Transaction(
+    fun toTransaction(): TransactionDomainModel {
+        return TransactionDomainModel(
             id = id,
             company = company,
             status=status,

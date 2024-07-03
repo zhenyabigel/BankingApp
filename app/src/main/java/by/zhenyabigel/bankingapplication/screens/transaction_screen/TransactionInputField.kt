@@ -22,16 +22,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-import by.zhenyabigel.bankingapplication.data.model.Transaction
+import by.zhenyabigel.bankingapplication.domain.model.TransactionDomainModel
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
-fun TransactionInputField(transaction: Transaction, onClickOkayBtn: () -> Unit) {
-    var transactionCompany by remember { mutableStateOf(transaction.company) }
-    var transactionNumber by remember { mutableStateOf(transaction.transactionNumber) }
-    var transactionStatus by remember { mutableStateOf(transaction.status) }
-    var transactionAmount by remember { mutableStateOf(transaction.amount) }
-    var transactionDate by remember { mutableStateOf(transaction.date) }
+fun TransactionInputField(transactionDomainModel: TransactionDomainModel, onClickOkayBtn: () -> Unit) {
+    var transactionCompany by remember { mutableStateOf(transactionDomainModel.company) }
+    var transactionNumber by remember { mutableStateOf(transactionDomainModel.transactionNumber) }
+    var transactionStatus by remember { mutableStateOf(transactionDomainModel.status) }
+    var transactionAmount by remember { mutableStateOf(transactionDomainModel.amount) }
+    var transactionDate by remember { mutableStateOf(transactionDomainModel.date) }
 
     Box(
         modifier = Modifier.fillMaxWidth()

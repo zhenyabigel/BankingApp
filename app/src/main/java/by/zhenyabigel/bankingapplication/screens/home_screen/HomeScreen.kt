@@ -41,9 +41,9 @@ fun HomeScreen(navController: NavHostController) {
                 .padding(horizontal = 16.dp)
                 .padding(top = 40.dp)
         ) {
-            AccountSection(account = accounts[1], onClickAccount = { showBottomSheet = true })
+            AccountSection(accountDomainModel = accounts[1], onClickAccount = { showBottomSheet = true })
             Spacer(modifier = Modifier.height(16.dp))
-            TransactionSection( transactions = transactions,navController =  navController)
+            TransactionSection( transactionDomainModels = transactions,navController =  navController)
             Spacer(modifier = Modifier.height(16.dp))
             HomeFooter(onClickPlusBtn = {navController.navigate("transaction_screen")})
         }

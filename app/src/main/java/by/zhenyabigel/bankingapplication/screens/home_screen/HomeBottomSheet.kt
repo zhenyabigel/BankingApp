@@ -16,12 +16,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import by.zhenyabigel.bankingapplication.data.model.Actions
-import by.zhenyabigel.bankingapplication.data.model.Account
+import by.zhenyabigel.bankingapplication.domain.model.AccountDomainModel
 import by.zhenyabigel.bankingapplication.ui.theme.DarkBlue
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
-fun HomeBottomSheet(selectedAccount: Account, accounts: List<Account>, onClickChangeAccount: () -> Unit) {
+fun HomeBottomSheet(selectedAccountDomainModel: AccountDomainModel, accountDomainModels: List<AccountDomainModel>, onClickChangeAccount: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -38,11 +38,11 @@ fun HomeBottomSheet(selectedAccount: Account, accounts: List<Account>, onClickCh
             contentPadding = PaddingValues(all = 5.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            items(items = accounts) { item ->
-                val color = if (selectedAccount == item) DarkBlue
+            items(items = accountDomainModels) { item ->
+                val color = if (selectedAccountDomainModel == item) DarkBlue
                 else Color.Black
                 CardItem(
-                    account = item,
+                    accountDomainModel = item,
                     onClickAccount = { onClickChangeAccount() },
                     type = Actions.BottomSheet,
                     modifier = Modifier.background(color)
