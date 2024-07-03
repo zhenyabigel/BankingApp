@@ -1,9 +1,8 @@
-package by.zhenyabigel.bankingapplication.data.storage.room.entities
+package by.zhenyabigel.bankingapplication.data.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import by.zhenyabigel.bankingapplication.data.model.Account
 import by.zhenyabigel.bankingapplication.data.model.Transaction
 import java.util.UUID
 
@@ -19,7 +18,6 @@ data class TransactionEntity(
     internal companion object {
         const val TABLE_NAME = "transaction_table" // <- удобно потом ссылаться будет
     }
-
     fun toTransaction(): Transaction {
         return Transaction(
             id = id,
@@ -30,5 +28,4 @@ data class TransactionEntity(
             amount = amount.toString()
         )
     }
-
 }

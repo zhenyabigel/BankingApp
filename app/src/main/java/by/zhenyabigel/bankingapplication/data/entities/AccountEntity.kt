@@ -1,4 +1,4 @@
-package by.zhenyabigel.bankingapplication.data.storage.room.entities
+package by.zhenyabigel.bankingapplication.data.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

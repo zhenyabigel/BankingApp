@@ -1,7 +1,7 @@
 package by.zhenyabigel.bankingapplication.di
 
 import by.zhenyabigel.bankingapplication.data.repository.AccountRepositoryImpl
-import by.zhenyabigel.bankingapplication.data.storage.AppDatabase
+import by.zhenyabigel.bankingapplication.data.room.AppDatabase
 import by.zhenyabigel.bankingapplication.domain.AccountsRepository
 import org.koin.dsl.module
 

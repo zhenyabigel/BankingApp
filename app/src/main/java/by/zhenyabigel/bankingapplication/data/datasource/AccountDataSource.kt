@@ -1,7 +1,7 @@
 package by.zhenyabigel.bankingapplication.data.datasource
 
-import by.zhenyabigel.bankingapplication.data.storage.room.dao.AccountDao
-import by.zhenyabigel.bankingapplication.data.storage.room.entities.AccountEntity
+import by.zhenyabigel.bankingapplication.data.dao.AccountDao
+import by.zhenyabigel.bankingapplication.data.entities.AccountEntity
 import kotlinx.coroutines.flow.Flow
 import java.util.UUID
 
