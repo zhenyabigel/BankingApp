@@ -1,9 +1,9 @@
-package by.zhenyabigel.bankingapplication.domain.model
+package by.zhenyabigel.bankingapplication.data.model
 
 import by.zhenyabigel.bankingapplication.data.entities.TransactionEntity
 import java.util.UUID
 
-data class TransactionDomainModel (
+data class Transaction (
     val id: UUID = UUID.randomUUID(),
     val company: String,
     val transactionNumber: String,
@@ -12,7 +12,7 @@ data class TransactionDomainModel (
     val amount: String
 )
 
-internal fun TransactionDomainModel.toData() = TransactionEntity(
+internal fun Transaction.toData() = TransactionEntity(
     id = id,
     company = company,
     transactionNumber = transactionNumber,

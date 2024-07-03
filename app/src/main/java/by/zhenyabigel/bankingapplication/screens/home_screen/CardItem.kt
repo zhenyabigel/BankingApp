@@ -24,13 +24,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import by.zhenyabigel.bankingapplication.R
 import by.zhenyabigel.bankingapplication.data.model.Actions
-import by.zhenyabigel.bankingapplication.domain.model.AccountDomainModel
+import by.zhenyabigel.bankingapplication.data.model.Account
 import by.zhenyabigel.bankingapplication.ui.theme.DarkGray
 import by.zhenyabigel.bankingapplication.ui.theme.Gray
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
-fun CardItem(accountDomainModel: AccountDomainModel, onClickAccount: () -> Unit, type: Actions, modifier: Modifier = Modifier) {
+fun CardItem(account: Account, onClickAccount: () -> Unit, type: Actions, modifier: Modifier = Modifier) {
     Box(modifier = Modifier
         .fillMaxWidth()
         .clip(RoundedCornerShape(15.dp))
@@ -49,7 +49,7 @@ fun CardItem(accountDomainModel: AccountDomainModel, onClickAccount: () -> Unit,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Image(
-                    painter = painterResource(accountDomainModel.cover),
+                    painter = painterResource(account.cover),
                     contentDescription = "card image",
                     modifier = Modifier
                         .width(40.dp)
@@ -66,14 +66,14 @@ fun CardItem(accountDomainModel: AccountDomainModel, onClickAccount: () -> Unit,
                         fontSize = 15.sp
                     )
                     Text(
-                        text = accountDomainModel.number,
+                        text = account.number,
                         fontFamily = robotoFontFamily,
                         fontWeight = FontWeight.Bold,
                         color = Gray,
                         fontSize = 13.sp
                     )
                     Text(
-                        text = "•••• " + accountDomainModel.walletID,
+                        text = "•••• " + account.walletID,
                         fontFamily = robotoFontFamily,
                         fontWeight = FontWeight.Bold,
                         color = Gray,
