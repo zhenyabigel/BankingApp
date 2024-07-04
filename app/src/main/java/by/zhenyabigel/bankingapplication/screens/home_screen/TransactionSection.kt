@@ -25,7 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import by.zhenyabigel.bankingapplication.domain.model.Transaction
+import by.zhenyabigel.bankingapplication.domain.model.TransactionDomainModel
 import by.zhenyabigel.bankingapplication.navigation.Screen
 import by.zhenyabigel.bankingapplication.ui.theme.Blue
 import by.zhenyabigel.bankingapplication.ui.theme.DarkGray
@@ -34,7 +34,7 @@ import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable
 fun TransactionSection(
-    transactions: List<Transaction>, navController: NavController
+    transactionDomainModels: List<TransactionDomainModel>, navController: NavController
 ) {
     Column {
         Row(
@@ -68,8 +68,8 @@ fun TransactionSection(
                 contentPadding = PaddingValues(all = 5.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                itemsIndexed(items = transactions.take(5)) { index, item ->
-                    TransactionItem(transaction = item,
+                itemsIndexed(items = transactionDomainModels.take(5)) { index, item ->
+                    TransactionItem(transactionDomainModel = item,
                         onClickTransaction = { navController.navigate((Screen.TransactionScreen.route)) })
                     if (index < 4) Divider(
                         color = LightGray,

@@ -1,12 +1,12 @@
 package by.zhenyabigel.bankingapplication.data.storage.transaction_storage
 
-import by.zhenyabigel.bankingapplication.domain.model.Transaction
+import by.zhenyabigel.bankingapplication.domain.model.TransactionDomainModel
 import kotlinx.coroutines.flow.Flow
 import java.util.UUID
 
 interface TransactionDataSource {
-    fun getTransactions(): Flow<List<Transaction>>
-    fun getTransaction(id: UUID): Flow<Transaction?>
-    suspend fun upsert(transaction: Transaction)
+    fun getTransactions(): Flow<List<TransactionDomainModel>>
+    fun getTransaction(id: UUID): Flow<TransactionDomainModel?>
+    suspend fun upsert(transactionDomainModel: TransactionDomainModel)
     suspend fun delete(id: UUID)
 }

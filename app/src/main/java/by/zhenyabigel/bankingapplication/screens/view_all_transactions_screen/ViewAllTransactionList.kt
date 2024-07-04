@@ -12,13 +12,13 @@ import androidx.compose.material3.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import by.zhenyabigel.bankingapplication.domain.model.Transaction
+import by.zhenyabigel.bankingapplication.domain.model.TransactionDomainModel
 import by.zhenyabigel.bankingapplication.screens.home_screen.TransactionItem
 import by.zhenyabigel.bankingapplication.ui.theme.LightGray
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ViewAllTransactionList(transactions: List<Transaction>) {
+fun ViewAllTransactionList(transactionDomainModels: List<TransactionDomainModel>) {
     val listState = rememberLazyListState()
     val flingBehavior = rememberSnapFlingBehavior(listState)
 
@@ -29,9 +29,9 @@ fun ViewAllTransactionList(transactions: List<Transaction>) {
         contentPadding = PaddingValues(all = 5.dp),
         verticalArrangement = Arrangement.spacedBy(1.dp)
     ) {
-        itemsIndexed(items = transactions) { index, item ->
-            TransactionItem(transaction = item, {})
-            if (index < transactions.lastIndex) Divider(
+        itemsIndexed(items = transactionDomainModels) { index, item ->
+            TransactionItem(transactionDomainModel = item, {})
+            if (index < transactionDomainModels.lastIndex) Divider(
                 color = LightGray,
                 thickness = 0.7.dp,
                 modifier = Modifier.padding(horizontal = 16.dp)

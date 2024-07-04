@@ -2,7 +2,7 @@ package by.zhenyabigel.bankingapplication.domain.model
 
 import java.util.UUID
 
-data class Transaction (
+data class TransactionDomainModel (
     val id: UUID = UUID.randomUUID(),
     val company: String,
     val transactionNumber: String,

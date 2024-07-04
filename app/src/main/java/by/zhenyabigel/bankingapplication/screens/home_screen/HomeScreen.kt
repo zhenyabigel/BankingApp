@@ -20,15 +20,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import by.zhenyabigel.bankingapplication.data.accounts
+import by.zhenyabigel.bankingapplication.data.accountDomainModels
 import by.zhenyabigel.bankingapplication.data.transactions
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavHostController) {
-    val accounts = accounts
-    var selectedAccount = by.zhenyabigel.bankingapplication.data.accounts[1]
+    val accounts = accountDomainModels
+    var selectedAccount = by.zhenyabigel.bankingapplication.data.accountDomainModels[1]
     val transactions = transactions
 
     val sheetState = rememberModalBottomSheetState()
@@ -41,9 +41,9 @@ fun HomeScreen(navController: NavHostController) {
                 .padding(horizontal = 16.dp)
                 .padding(top = 40.dp)
         ) {
-            AccountSection(account = accounts[1], onClickAccount = { showBottomSheet = true })
+            AccountSection(accountDomainModel = accounts[1], onClickAccount = { showBottomSheet = true })
             Spacer(modifier = Modifier.height(16.dp))
-            TransactionSection( transactions = transactions,navController =  navController)
+            TransactionSection( transactionDomainModels = transactions,navController =  navController)
             Spacer(modifier = Modifier.height(16.dp))
             HomeFooter(onClickPlusBtn = {navController.navigate("transaction_screen")})
         }
