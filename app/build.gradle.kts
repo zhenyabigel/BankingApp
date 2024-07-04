@@ -26,8 +26,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -52,12 +51,20 @@ android {
 }
 kapt {
     correctErrorTypes = true
+    arguments { arg("room.schemaLocation", "$projectDir/schemas") }
+
 }
-dependencies{
-    implementation (libs.koin.test)
-    implementation (libs.koin.core)
-    implementation (libs.koin.android)
-    implementation (libs.androidx.animation)
+
+dependencies {
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    implementation(libs.koin.test)
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.androidx.animation)
     implementation(libs.androidx.ui.text.google.fonts)
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
