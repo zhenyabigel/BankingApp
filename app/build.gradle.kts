@@ -57,6 +57,7 @@ kapt {
 
 dependencies {
     val room_version = "2.6.1"
+    implementation("io.insert-koin:koin-androidx-compose:3.5.3")
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     kapt("androidx.room:room-compiler:$room_version")

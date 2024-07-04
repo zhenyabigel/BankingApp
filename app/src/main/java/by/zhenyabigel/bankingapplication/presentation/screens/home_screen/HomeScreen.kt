@@ -12,6 +12,7 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -22,80 +23,90 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import by.zhenyabigel.bankingapplication.R
 import by.zhenyabigel.bankingapplication.domain.model.AccountDomainModel
-import by.zhenyabigel.bankingapplication.domain.model.TransactionDomainModel
+import by.zhenyabigel.bankingapplication.presentation.screens.utils.ErrorScreen
+import by.zhenyabigel.bankingapplication.presentation.screens.utils.LoadingScreen
+import by.zhenyabigel.bankingapplication.presentation.viewmodel.HomeViewModel
+import org.koin.androidx.compose.koinViewModel
 import java.util.UUID
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navController: NavHostController) {
-    val accounts = listOf(
-        AccountDomainModel(
-            id = UUID.randomUUID(),
-            number = "1212312",
-            walletID = "1231231232",
-            ownerName = "Zhenya Bigel",
-            cover = R.drawable.card
-        ),
-        AccountDomainModel(
-            id = UUID.randomUUID(),
-            number = "1212312",
-            walletID = "1231231232",
-            ownerName = "Zhenya Bigel",
-            cover = R.drawable.card
-        ),
-        AccountDomainModel(
-            id = UUID.randomUUID(),
-            number = "1212312",
-            walletID = "1231231232",
-            ownerName = "Zhenya Bigel",
-            cover = R.drawable.card
-        )
-    )
-    var selectedAccount = accounts[1]
-    val transactions = listOf(
-        TransactionDomainModel(
-            id = UUID.randomUUID(),
-            company = "SDdsdsds",
-            transactionNumber = "123123 213123 21312",
-            date = "25.06.2022",
-            status = "Enabled",
-            amount = "15"
-        )
-    )
+fun HomeScreen(
+    navController: NavHostController, viewModel: HomeViewModel = koinViewModel()
+) {
+    val uiState by viewModel.uiState.collectAsState()
 
     val sheetState = rememberModalBottomSheetState()
-    var showBottomSheet by remember { mutableStateOf(false) }
-    Scaffold(modifier = Modifier.fillMaxSize(), content = { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color.Black)
-                .padding(horizontal = 16.dp)
-                .padding(top = 40.dp)
-        ) {
-            AccountSection(
-                accountDomainModel = accounts[1],
-                onClickAccount = { showBottomSheet = true })
-            Spacer(modifier = Modifier.height(16.dp))
-            TransactionSection(
-                transactionDomainModels = transactions, navController = navController
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            HomeFooter(onClickPlusBtn = { navController.navigate("transaction_screen") })
-        }
-        if (showBottomSheet) {
-            ModalBottomSheet(
-                onDismissRequest = {
-                    showBottomSheet = false
-                },
-                sheetState = sheetState,
-                containerColor = Color.Black,
+    var showBottomSheet: Boolean by remember { mutableStateOf(false) }
+
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        content = { padding ->
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black)
+                    .padding(horizontal = 16.dp)
+                    .padding(top = 40.dp)
             ) {
-                HomeBottomSheet(selectedAccount, accounts, {})
+
+                when (val state = uiState) {
+                    is HomeViewModel.HomeState.Loading -> {
+                        LoadingScreen()
+                    }
+
+                    is HomeViewModel.HomeState.Empty -> {
+                        ErrorScreen()
+                    }
+
+                    is HomeViewModel.HomeState.Loaded -> {
+                        val accounts = state.accounts
+                        val transactions = state.transactions
+
+                        AccountSection(accountDomainModel = accounts[1],
+                            onClickAccount = { showBottomSheet = true })
+
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        TransactionSection(
+                            transactionDomainModels = transactions, navController = navController
+                        )
+
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        HomeFooter(onClickPlusBtn = { navController.navigate("transaction_screen") })
+
+                        if (showBottomSheet) {
+                            ModalBottomSheet(
+                                onDismissRequest = {
+                                    showBottomSheet = false
+                                },
+                                sheetState = sheetState,
+                                containerColor = Color.Black,
+                            ) {
+                                HomeBottomSheet(
+                                    selectedAccountDomainModel = AccountDomainModel(
+                                        id = UUID.randomUUID(),
+                                        number = "1212312",
+                                        walletID = "1231231232",
+                                        ownerName = "Zhenya Bigel",
+                                        cover = R.drawable.card
+                                    ),
+                                    accountDomainModels =accounts,
+                                    onClickChangeAccount = {
+
+                                    })
+                            }
+                        }
+                    }
+
+                    is HomeViewModel.HomeState.Error -> {
+                        val exception = state.e
+                    }
+                }
             }
-        }
-    })
+        })
 }
 
 
