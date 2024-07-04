@@ -5,8 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
-import by.zhenyabigel.bankingapplication.navigation.SetupNavGraph
-import by.zhenyabigel.bankingapplication.ui.theme.BankingApplicationTheme
+import by.zhenyabigel.bankingapplication.presentation.navigation.SetupNavGraph
+import by.zhenyabigel.bankingapplication.presentation.ui.theme.BankingApplicationTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
