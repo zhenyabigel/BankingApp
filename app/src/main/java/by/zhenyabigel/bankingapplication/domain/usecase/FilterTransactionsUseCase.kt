@@ -1,6 +1,5 @@
 package by.zhenyabigel.bankingapplication.domain.usecase
 
-import by.zhenyabigel.bankingapplication.domain.model.DateRange
 import by.zhenyabigel.bankingapplication.domain.model.TransactionDomainModel
 import by.zhenyabigel.bankingapplication.domain.repository.TransactionRepository
 import by.zhenyabigel.bankingapplication.domain.utils.DateUtils
