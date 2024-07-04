@@ -1,4 +1,4 @@
-package by.zhenyabigel.bankingapplication.data.model
+package by.zhenyabigel.bankingapplication.domain.model
 
 import java.util.UUID
 

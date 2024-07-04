@@ -22,7 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-import by.zhenyabigel.bankingapplication.data.model.Transaction
+import by.zhenyabigel.bankingapplication.domain.model.Transaction
 import by.zhenyabigel.bankingapplication.ui.theme.robotoFontFamily
 
 @Composable

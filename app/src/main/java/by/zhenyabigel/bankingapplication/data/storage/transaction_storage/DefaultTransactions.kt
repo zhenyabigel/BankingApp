@@ -1,6 +1,6 @@
 package by.zhenyabigel.bankingapplication.data.storage.transaction_storage
 
-import by.zhenyabigel.bankingapplication.data.model.Transaction
+import by.zhenyabigel.bankingapplication.domain.model.Transaction
 
 val DefaultTransactions = listOf(
     Transaction(

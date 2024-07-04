@@ -1,8 +1,8 @@
 package by.zhenyabigel.bankingapplication.data
 
 import by.zhenyabigel.bankingapplication.R
-import by.zhenyabigel.bankingapplication.data.model.Account
-import by.zhenyabigel.bankingapplication.data.model.Transaction
+import by.zhenyabigel.bankingapplication.domain.model.Account
+import by.zhenyabigel.bankingapplication.domain.model.Transaction
 
 val accounts = listOf(
     Account(

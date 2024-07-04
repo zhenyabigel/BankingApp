@@ -1,6 +1,6 @@
 package by.zhenyabigel.bankingapplication.data.storage.account_storage
 
-import by.zhenyabigel.bankingapplication.data.model.Account
+import by.zhenyabigel.bankingapplication.domain.model.Account
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
