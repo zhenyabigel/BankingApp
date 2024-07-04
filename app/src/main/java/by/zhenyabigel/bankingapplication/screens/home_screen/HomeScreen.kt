@@ -20,16 +20,35 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import by.zhenyabigel.bankingapplication.data.accounts
-import by.zhenyabigel.bankingapplication.data.transactions
+import by.zhenyabigel.bankingapplication.R
+import by.zhenyabigel.bankingapplication.domain.model.AccountDomainModel
+import by.zhenyabigel.bankingapplication.domain.model.TransactionDomainModel
+import java.util.UUID
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavHostController) {
-    val accounts = accounts
-    var selectedAccount = by.zhenyabigel.bankingapplication.data.accounts[1]
-    val transactions = transactions
+    val accounts = listOf(
+        AccountDomainModel(
+            id = UUID.randomUUID(),
+            number = "1212312",
+            walletID = "1231231232",
+            ownerName = "Zhenya Bigel",
+            cover = R.drawable.card
+        )
+    )
+    var selectedAccount = accounts[1]
+    val transactions = listOf(
+        TransactionDomainModel(
+            id = UUID.randomUUID(),
+            company = "SDdsdsds",
+            transactionNumber = "123123 213123 21312",
+            date = "25.06.2022",
+            status = "Enabled",
+            amount = "15"
+        )
+    )
 
     val sheetState = rememberModalBottomSheetState()
     var showBottomSheet by remember { mutableStateOf(false) }
@@ -41,11 +60,15 @@ fun HomeScreen(navController: NavHostController) {
                 .padding(horizontal = 16.dp)
                 .padding(top = 40.dp)
         ) {
-            AccountSection(accountDomainModel = accounts[1], onClickAccount = { showBottomSheet = true })
+            AccountSection(
+                accountDomainModel = accounts[1],
+                onClickAccount = { showBottomSheet = true })
             Spacer(modifier = Modifier.height(16.dp))
-            TransactionSection( transactions = transactions,navController =  navController)
+            TransactionSection(
+                transactionDomainModels = transactions, navController = navController
+            )
             Spacer(modifier = Modifier.height(16.dp))
-            HomeFooter(onClickPlusBtn = {navController.navigate("transaction_screen")})
+            HomeFooter(onClickPlusBtn = { navController.navigate("transaction_screen") })
         }
         if (showBottomSheet) {
             ModalBottomSheet(
