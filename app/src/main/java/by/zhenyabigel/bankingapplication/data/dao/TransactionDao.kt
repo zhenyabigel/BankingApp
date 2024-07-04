@@ -9,14 +9,19 @@ import java.util.UUID
 
 @Dao
 interface TransactionDao {
+
     @Query("SELECT * FROM ${TransactionEntity.TABLE_NAME}")
     fun getListAsFlow(): Flow<List<TransactionEntity>>
+
     @Query("SELECT * FROM ${TransactionEntity.TABLE_NAME}")
     fun getList(): List<TransactionEntity>
+
     @Query("SELECT * FROM ${TransactionEntity.TABLE_NAME} WHERE id=:id ")
     fun getItemAsFlow(id: UUID): Flow<TransactionEntity>
+
     @Query("SELECT * FROM ${TransactionEntity.TABLE_NAME} WHERE id=:id ")
     fun getItem(id: UUID): TransactionEntity
+
     @Upsert
     suspend fun save(e: TransactionEntity)
 

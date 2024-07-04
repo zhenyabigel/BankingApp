@@ -9,16 +9,22 @@ import java.util.UUID
 
 @Dao
 interface AccountDao {
+
     @Query("SELECT * FROM ${AccountEntity.TABLE_NAME}")
     fun getList(): List<AccountEntity>
+
     @Query("SELECT * FROM ${AccountEntity.TABLE_NAME}")
     fun getListAsFlow(): Flow<List<AccountEntity>>
+
     @Query("SELECT * FROM ${AccountEntity.TABLE_NAME} WHERE id=:id ")
     fun getItem(id: UUID): AccountEntity
+
     @Query("SELECT * FROM ${AccountEntity.TABLE_NAME} WHERE id=:id ")
     fun getItemAsFlow(id: UUID): Flow<AccountEntity>
-    @Upsert // INSERT OR REPLACE в БД
+
+    @Upsert
     suspend fun save(e: AccountEntity)
+
     @Query("DELETE FROM ${AccountEntity.TABLE_NAME} WHERE id = :id")
     suspend fun delete(id: UUID)
 }
