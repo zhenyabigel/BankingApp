@@ -1,6 +1,6 @@
-package by.zhenyabigel.bankingapplication.domain
+package by.zhenyabigel.bankingapplication.domain.repository_interfaces
 
-import by.zhenyabigel.bankingapplication.data.model.Transaction
+import by.zhenyabigel.bankingapplication.domain.model.Transaction
 import kotlinx.coroutines.flow.Flow
 import java.util.UUID
 

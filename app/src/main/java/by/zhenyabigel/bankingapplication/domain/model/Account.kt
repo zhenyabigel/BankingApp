@@ -1,4 +1,4 @@
-package by.zhenyabigel.bankingapplication.data.model
+package by.zhenyabigel.bankingapplication.domain.model
 
 import androidx.annotation.DrawableRes
 import by.zhenyabigel.bankingapplication.data.entities.AccountEntity
