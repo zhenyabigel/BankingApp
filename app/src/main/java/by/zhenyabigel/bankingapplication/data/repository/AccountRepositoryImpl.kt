@@ -3,7 +3,7 @@ package by.zhenyabigel.bankingapplication.data.repository
 import by.zhenyabigel.bankingapplication.data.datasource.AccountDataSource
 import by.zhenyabigel.bankingapplication.data.entities.AccountEntity
 import by.zhenyabigel.bankingapplication.domain.model.AccountDomainModel
-import by.zhenyabigel.bankingapplication.domain.AccountsRepository
+import by.zhenyabigel.bankingapplication.domain.repository.AccountsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.util.UUID

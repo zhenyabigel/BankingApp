@@ -11,7 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import by.zhenyabigel.bankingapplication.data.transactions
+import by.zhenyabigel.bankingapplication.domain.model.TransactionDomainModel
+import java.util.UUID
 
 @Composable
 fun TransactionScreen(navController: NavController) {
@@ -24,12 +25,17 @@ fun TransactionScreen(navController: NavController) {
     ) {
         TransactionHeader()
         Spacer(modifier = Modifier.height(32.dp))
-        TransactionInputField(
-            transactions[1],
-            onClickOkayBtn = {
-                {}
-                navController.navigate("home_screen")
-            })
+        TransactionInputField(TransactionDomainModel(
+            id = UUID.randomUUID(),
+            company = "",
+            transactionNumber = "s",
+            date = "s",
+            status = "stat",
+            amount = "16"
+        ), onClickOkayBtn = {
+            {}
+            navController.navigate("home_screen")
+        })
     }
 }
 

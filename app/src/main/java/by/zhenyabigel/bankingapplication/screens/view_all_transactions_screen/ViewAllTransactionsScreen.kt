@@ -18,12 +18,39 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import by.zhenyabigel.bankingapplication.data.transactions
 import androidx.navigation.NavController
+import by.zhenyabigel.bankingapplication.domain.model.TransactionDomainModel
+import java.util.UUID
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ViewAllTransactionsScreen(navController: NavController) {
-    val transactions = transactions
+    val transactions = listOf(
+        TransactionDomainModel(
+            id = UUID.randomUUID(),
+            company = "",
+            transactionNumber = "s",
+            date = "s",
+            status = "stat",
+            amount = "16"
+        ),
+        TransactionDomainModel(
+            id = UUID.randomUUID(),
+            company = "",
+            transactionNumber = "s",
+            date = "s",
+            status = "stat",
+            amount = "16"
+        ),
+        TransactionDomainModel(
+            id = UUID.randomUUID(),
+            company = "",
+            transactionNumber = "s",
+            date = "s",
+            status = "stat",
+            amount = "16"
+        )
+    )
     val sheetState = rememberModalBottomSheetState()
     var showBottomSheet by remember { mutableStateOf(false) }
     Scaffold(modifier = Modifier.fillMaxSize(), content = { padding ->

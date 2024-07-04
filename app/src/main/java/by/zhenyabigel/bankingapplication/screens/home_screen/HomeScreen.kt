@@ -36,6 +36,20 @@ fun HomeScreen(navController: NavHostController) {
             walletID = "1231231232",
             ownerName = "Zhenya Bigel",
             cover = R.drawable.card
+        ),
+        AccountDomainModel(
+            id = UUID.randomUUID(),
+            number = "1212312",
+            walletID = "1231231232",
+            ownerName = "Zhenya Bigel",
+            cover = R.drawable.card
+        ),
+        AccountDomainModel(
+            id = UUID.randomUUID(),
+            number = "1212312",
+            walletID = "1231231232",
+            ownerName = "Zhenya Bigel",
+            cover = R.drawable.card
         )
     )
     var selectedAccount = accounts[1]
